@@ -6,7 +6,7 @@
 ![YT-DLP](https://img.shields.io/badge/yt--dlp-latest-red)
 
 <p align="center">
-  <img src="assets/cover.png" alt="Cover" width="100%">
+  <img src="cover.png" alt="Cover" width="100%">
 </p>
 
 ربات تلگرامی دانلود ویدیو و موزیک از یوتیوب؛ کافی است لینک را بفرستید،
@@ -74,8 +74,8 @@ run.bat
 
 ## 📸 کاور پروژه
 
-عکس کاور را در مسیر `assets/cover.png` قرار دهید
-(ابعاد پیشنهادی: **1280×640** برای Social Preview گیت‌هاب و **1600×400** برای بنر README).
+عکس کاور در ریشهٔ پروژه با نام `cover.png` قرار دارد (ابعاد: **1200×300**).
+اگر عوضش کردید، همان فایل `cover.png` را جایگزین کنید تا README خودکار به‌روز شود.
 
 ## ⚠️ نکات امنیتی
 
