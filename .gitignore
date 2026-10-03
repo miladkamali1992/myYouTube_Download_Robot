@@ -1,0 +1,34 @@
+# حساس — هرگز کامیت نشود
+.env
+.env.*
+!.env.example
+
+# محیط مجازی پایتون
+venv/
+.venv/
+
+# داده‌های اجرایی
+__pycache__/
+*.pyc
+*.session
+*.session-journal
+
+# فایل‌های موقت دانلود
+downloads/
+cookies/
+t4.txt
+
+# لاگ‌ها
+*.log
+
+# ابزارهای دانلودشده (ffmpeg، deno، اینستالرها)
+tools/
+
+# بکاپ‌های محلی کد
+_backup*/
+
+# ادیتورها و سیستم
+.idea/
+.vscode/
+*.bak
+Thumbs.db
