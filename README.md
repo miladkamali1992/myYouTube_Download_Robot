@@ -1,91 +1,58 @@
-# myYouTube Download Robot 🤖🎬
-
-![Python](https://img.shields.io/badge/Python-3.12-blue?logo=python&logoColor=white)
-![Telegram](https://img.shields.io/badge/Telegram-Bot-26A5E4?logo=telegram&logoColor=white)
-![License](https://img.shields.io/badge/license-MIT-green)
-![YT-DLP](https://img.shields.io/badge/yt--dlp-latest-red)
-
 <p align="center">
   <img src="cover.png" alt="Cover" width="100%">
 </p>
 
-ربات تلگرامی دانلود ویدیو و موزیک از یوتیوب؛ کافی است لینک را بفرستید،
-کیفیت دلخواه را انتخاب کنید تا فایل با سرعت بالا و بدون افت کیفیت برایتان ارسال شود.
+# myYouTube Download Robot
 
-## ✨ امکانات
+A Telegram bot that downloads YouTube videos and music. Send a link, pick a quality, get the file in your chat.
 
-- 📥 دریافت لینک یوتیوب → نمایش عنوان، تامبنیل و کیفیت‌های واقعاً موجود
-- 🎥 دانلود ویدیو در کیفیت‌های `2160 / 1080 / 720 / 480 / 360` (بهترین ترکیب صدا+تصویر با ادغام ffmpeg)
-- 🎵 تبدیل به MP3 با کیفیت دلخواه
-- 🚀 **ارسال موشکی (کش):** پس از اولین دانلود، فایل در دیتابیس ذخیره می‌شود و ارسال‌های بعدی فوری است
-- 📊 پیام پیشرفت زنده: حجم، سرعت، درصد و نوار لودینگ 🟩⬜
-- 🖼️ تامبنیل اختصاصی هر پست + برش عمودی خودکار برای Shorts
-- 🧾 کپشن فارسی شامل عنوان، لینک، کیفیت و حجم
-- 🔒 حالت تست: فقط ادمین‌ها در حالت توسعه سرویس می‌گیرند
-- 🛡️ خطاهای یوتیوب به فارسی روان ترجمه می‌شوند
-- ⚡ بدون وب‌هوک — Polling با Telethon (مناسب سرورهای ایران)
+## 🚀 Features
 
-## 🏗ی ساختار پروژه
+- Download videos in the quality you want — from 144p up to 4K, whatever the video actually has
+- Download the audio alone as MP3
+- Files converted earlier — by you or by other users — are sent instantly
 
-| فایل | وظیفه |
-|---|---|
-| `bot.py` | هندلرهای پیام/کال‌بک، جریان دانلود و آپلود، نقطهٔ ورود |
-| `config.py` | خواندن `.env`، مسیرها و ثابت‌ها |
-| `database.py` | مدل‌های SQLAlchemy + توابع دسترسی (async) |
-| `youtube_service.py` | استخراج شناسه، متادیتا (yt-dlp)، دانلود/ادغام/تبدیل |
-| `progress.py` | متن پیشرفت، نوار اموجی، ویرایش‌دهندهٔ throttle شده |
-| `.env.example` | الگوی تنظیمات (کپی به `.env` کنید) |
+## 📦 Requirements
 
-## 🚀 نصب و اجرا
-
-### ۱) پیش‌نیازها
 - Python 3.12
 - PostgreSQL 15
-- فایل‌های `tools/ffmpeg-*` و `tools/deno/deno.exe` (الزامی برای yt-dlp)
+- ffmpeg and Deno (already included in `tools/`)
 
-### ۲) مراحل راه‌اندازی
+## ▶️ Setup
 
 ```powershell
-# کلون پروژه
-git clone https://github.com/<یوزرنیم شما>/myYouTube_Download_Robot.git
+git clone https://github.com/miladkamali1992/myYouTube_Download_Robot.git
 cd myYouTube_Download_Robot
-
-# محیط مجازی پایتون
 python -m venv venv
 venv\Scripts\python.exe -m pip install -r requirements.txt
-
-# تنظیمات را وارد کنید
 copy .env.example .env
 notepad .env
 ```
 
-### ۳) ساخت ربات تلگرام
-1. در `@BotFather` ربات بسازید و توکن را در `BOT_TOKEN` بگذارید
-2. در `my.telegram.org` `api_id` و `api_hash` را بگیرید و در `TELEGRAM_API_ID` / `TELETHON_API_HASH` بگذارید
-3. یوزر آی‌دی عددی خودتان را در `ADMIN_USER_IDS` قرار دهید
+Get `BOT_TOKEN` from [@BotFather](https://t.me/BotFather), and `api_id` / `api_hash` from [my.telegram.org](https://my.telegram.org).
+Put your Telegram user ID in `ADMIN_USER_IDS` and leave `TEST_MODE=1` while you're testing; set it to `0` when the bot is open to everyone.
 
-### ۴) اجرا
+## ▶️ Run
 
 ```powershell
 venv\Scripts\python.exe bot.py
-# یا
+# or
 run.bat
 ```
 
-## 📸 کاور پروژه
+## ⚠️ Notes
 
-عکس کاور در ریشهٔ پروژه با نام `cover.png` قرار دارد (ابعاد: **1200×300**).
-اگر عوضش کردید، همان فایل `cover.png` را جایگزین کنید تا README خودکار به‌روز شود.
+- `.env` holds your tokens — it's in `.gitignore` and must never be committed.
+- Telegram limits uploads to 2 GB, bigger files are rejected.
 
-## ⚠️ نکات امنیتی
+## 📄 License
 
-- فایل `.env` شامل توکن ربات، api_hash و رمز دیتابیس است و **هرگز** نباید کامیت شود
-  (در `.gitignore` قرار دارد و نباید آن را حذف کنید).
-- `bot_session.session`، `downloads/`، `cookies/`، `tools/` و لاگ‌ها نیز کامیت نمی‌شوند.
-- اطلاعات حساس را هرگز در کد هاردکد نکنید.
+MIT
 
-## 📄 لایسنس
+> ⚖️ Only download content you have the right to download.
 
-MIT — استفاده و تغییر آزاد است.
+---
 
-> ⚖️ فقط برای دانلود محتوایی که مجوزش را دارید استفاده کنید.
+## 👨‍💻 Author
+**Milad**  
+📬 Telegram: **https://MiladKamali.t.me**
