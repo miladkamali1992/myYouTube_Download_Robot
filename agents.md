@@ -114,7 +114,7 @@ venv\Scripts\python.exe bot.py     # یا run.bat
 - **پایتون:** نسخه 3.12 در `C:\Python312` نصب است و پروژه از venv محلی استفاده می‌کند
   (`venv\`). پایتون 3.9 سیستم برای این پروژه کافی نیست چون yt-dlp جدید به ≥3.10 نیاز دارد.
 - **نصب مجدد وابستگی‌ها:** `venv\Scripts\python.exe -m pip install -r requirements.txt`
-- لاگ‌ها: `bot.log` | دستور ادمین: `/stats` (user_id ادمین: `103983573`)
+- لاگ‌ها: `bot.log` | دستور ادمین: `/stats` (user_id ادمین در `.env` — کلید `ADMIN_USER_IDS`)
 
 ## نکات آسیب‌پذیر برای توسعهٔ بعدی
 - **yt-dlp** دائماً به‌روزرسانی می‌شود؛ اگر دانلود با خطا مواجه شد اول `venv\Scripts\python.exe -m pip install -U yt-dlp` را امتحان کن.
